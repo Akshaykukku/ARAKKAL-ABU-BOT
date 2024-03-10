@@ -3,7 +3,7 @@ class script(object):
 
     ABOUT_TXT = """✯ 𝙼𝚈 𝙽𝙰𝙼𝙴 : {}
 ✯ Lɪʙʀᴀʀʏ: Pʏʀᴏɢʀᴀᴍ
-✯ Dᴇᴠᴏʟᴏᴘᴇʀ: <a href=http://t.me/Thisis_sanu>𝐒ል𝐍ሁ❀</a>
+✯ Dᴇᴠᴏʟᴏᴘᴇʀ: <a href=https://t.me/SM_Projects>𝐒ል𝐍ሁ❀</a>
 ✯ Lᴀɴɢᴜᴀɢᴇ: Pʏᴛʜᴏɴ 3
 ✯ DᴀᴛᴀBᴀsᴇ: MᴏɴɢᴏDB
 ✯ Bᴏᴛ Sᴇʀᴠᴇʀ: Hᴇʀᴜᴋᴜ ᴘᴀɪᴅ
@@ -12,10 +12,10 @@ class script(object):
     SOURCE_TXT = """<b>NOTE:</b>
 -sᴏᴜʀᴄᴇ ᴄᴏᴅᴇ ɪs ʙᴀsᴇᴅ ᴏɴ ᴇᴠᴀ ᴍᴀʀɪᴀ ᴀᴜᴛᴏ ғɪʟᴛᴇʀ ᴀɴᴅ ᴏᴛʜᴇʀ ᴀᴜᴛᴏ ғɪʟᴛᴇʀ 
 
-- source : https://github.com/Rascal72/ARAKKAL-ABU-BOT
+- source : https://github.com/Akshaykukku/ARAKKAL-ABU-BOT
 
 <b>DEVS:</b>
-- 𝙳𝚎𝚟  <a href=https://t.me/Thisis_sanu>Sanu</a>"""
+- 𝙳𝚎𝚟  <a href=https://t.me/SPYROMOVIES_TG>SPYRO</a>"""
 
 
     FILE_TXT = """➤ 𝐇𝐞𝐥𝐩: 𝐅𝐢𝐥𝐞 𝐒𝐭𝐨𝐫𝐞 𝐌𝐨𝐝𝐮𝐥𝐞../
@@ -30,9 +30,9 @@ class script(object):
 
 ⪼ 𝐄𝐱𝐚𝐦𝐩𝐥𝐞 ›
 
-<code>/batch https://t.me/Thisis_sanu https://t.me/Thisis_sanu</code>
+<code>/batch https://t.me/SM_Projects https://t.me/SM_Projects</code>
 
-𝙲𝚁𝙴𝙳𝙸𝚃𝚂 ›› <a href=https://t.me/Thisis_sanu>Sanu><b>sanu</b></a>"""
+𝙲𝚁𝙴𝙳𝙸𝚃𝚂 ›› <a href=https://t.me/SM_Projects>Spyro><b>spyro</b></a>"""
     
     MANUELFILTER_TXT = """Help: <b>Filters</b>
 
@@ -78,7 +78,7 @@ class script(object):
 ›› /set_template - 𝚂𝙴𝚃 𝙲𝚄𝚂𝚃𝙾𝙼 𝙸𝙼𝙳𝙱 𝚃𝙴𝙼𝙿𝙻𝙰𝚃𝙴 𝙵𝙾𝚁 𝙰𝚄𝚃𝙾 𝙵𝙸𝙻𝚃𝙴𝚁. 
 ›› /get_template - 𝙶𝙴𝚃 𝙲𝚄𝚁𝚁𝙴𝙽𝚃 𝙸𝙼𝙳𝙱 𝚃𝙴𝙼𝙿𝙻𝙰𝚃𝙴 𝙾𝙵 𝙰𝚄𝚃𝙾 𝙵𝙸𝙻𝚃𝙴𝚁.
 
-𝙲𝚁𝙴𝙳𝙸𝚃𝚂 :- <a href=https://t.me/Thisis_sanu>Sanu</a>**"""
+𝙲𝚁𝙴𝙳𝙸𝚃𝚂 :- <a href=https://t.me/SM_Projects>sᴘʀʀᴏ</a>**"""
 
     CONNECTION_TXT = """Help: <b>Connections</b>
 
@@ -329,7 +329,7 @@ Delete A Lot Of Messages From Groups!
 • /share - 𝚁𝚎𝚙𝚕𝚢 𝚆𝚒𝚝𝚑 𝙰𝚗𝚢 𝚃𝚎𝚡𝚝 𝚃𝚘 𝚂𝚎𝚗𝚍 𝚃𝚑𝚒𝚜 𝙲𝚘𝚖𝚖𝚊𝚗𝚍 """
    
     DISCLAIMER_TXT = """DISCLAIMER NOTE‼️:
-- @Sm_Arakkal_abu_bot is an Open Source Project.
+- URVASHI BOT is an Open Source Project.
 All the files in this bot are freely available on the internet or posted by somebody else. 
 This bot is indexing files which are already uploaded on Telegram for easy of searching, We respect all the copyright laws and works in compliance with DMCA and EUCD. 
 If anything is against law please contact us so that it can be removed asap. 
@@ -342,7 +342,7 @@ For any content removal contact admin it will be remove instantly"""
     AUTOAPPROVE_TXT = """Hello!
 I can approve users in Groups/Channels.Add me to your chat and promote me to admin with add members permission.
 This feature is not work in cloned repository 
-Powerd By : @Sanusmoviesch"""
+Powerd By : @SM_PROJECTS"""
     
 
 
