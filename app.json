@@ -5,7 +5,7 @@
     "stack": "container",
     "keywords": ["telegram", "auto-filter"],
     "website": "https://github.com/Rascal72/ARAKKAL-ABU-BOT",
-    "repository": "https://github.com/Rascal72/ARAKKAL-ABU-BOT",
+    "repository": "https://github.com/Akshaykukku/ARAKKAL-ABU-BOT",
     "env": {
         "BOT_TOKEN": {
             "description": "Your bot token.",
@@ -47,7 +47,7 @@
         },
         "CUSTOM_FILE_CAPTION": {
             "description": "A custom file caption for your files. formatable with , file_name, file_caption, file_size, Read Readme.md for better understanding.",
-            "value": "Hey {mention}👋\n\n{file_name}\n\n🔘 size - {file_size}\n\n╔═════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╗\n💥 𝙅𝙊𝙄𝙉 :- @cinema_kalavara\n💥 𝙅𝙊𝙄𝙉 :- @sanusmoviesch\n╚═════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╝ ",
+            "value": "Hey {mention}👋\n\n{file_name}\n\n🔘 size - {file_size}\n\n╔═════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╗\n💥 𝙅𝙊𝙄𝙉 :- @SPYROMOVIES\n💥 𝙅𝙊𝙄𝙉 :- @SPYROMOVIES_TG\n╚═════ ᴊᴏɪɴ ᴡɪᴛʜ ᴜs ════╝ ",
             "required": false
         },
         "DATABASE_URI": {
@@ -66,7 +66,7 @@
         },
         "SUPPORT_CHAT": {
             "description": "Updated Channel Username Without @ Not Chanel ID",
-            "value": "MKN_BOTZ_DISCUSSION_GROUP",
+            "value": "Spyrochat",
             "required": false
         },
         "IMDB": {
