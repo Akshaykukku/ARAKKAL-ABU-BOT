@@ -3,7 +3,7 @@ class script(object):
 
     ABOUT_TXT = """✯ 𝙼𝚈 𝙽𝙰𝙼𝙴 : {}
 ✯ Lɪʙʀᴀʀʏ: Pʏʀᴏɢʀᴀᴍ
-✯ Dᴇᴠᴏʟᴏᴘᴇʀ: <a href=https://t.me/SM_Projects>SPYRO</a>
+✯ Dᴇᴠᴏʟᴏᴘᴇʀ: <a href=https://t.me/SM_Projects>Spyro</a>
 ✯ Lᴀɴɢᴜᴀɢᴇ: Pʏᴛʜᴏɴ 3
 ✯ DᴀᴛᴀBᴀsᴇ: MᴏɴɢᴏDB
 ✯ Bᴏᴛ Sᴇʀᴠᴇʀ: Hᴇʀᴜᴋᴜ ᴘᴀɪᴅ
@@ -15,7 +15,7 @@ class script(object):
 - source : https://github.com/Akshaykukku/ARAKKAL-ABU-BOT
 
 <b>DEVS:</b>
-- 𝙳𝚎𝚟  <a href=https://t.me/SPYROMOVIES_TG>SPYRO</a>"""
+- 𝙳𝚎𝚟  <a href=https://t.me/SPYROMOVIES_TG>Spyro</a>"""
 
 
     FILE_TXT = """➤ 𝐇𝐞𝐥𝐩: 𝐅𝐢𝐥𝐞 𝐒𝐭𝐨𝐫𝐞 𝐌𝐨𝐝𝐮𝐥𝐞../
