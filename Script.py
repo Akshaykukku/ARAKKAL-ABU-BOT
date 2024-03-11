@@ -3,7 +3,7 @@ class script(object):
 
     ABOUT_TXT = """✯ 𝙼𝚈 𝙽𝙰𝙼𝙴 : {}
 ✯ Lɪʙʀᴀʀʏ: Pʏʀᴏɢʀᴀᴍ
-✯ Dᴇᴠᴏʟᴏᴘᴇʀ: <a href=https://t.me/SM_Projects>𝐒ል𝐍ሁ❀</a>
+✯ Dᴇᴠᴏʟᴏᴘᴇʀ: <a href=https://t.me/SM_Projects>SPYRO</a>
 ✯ Lᴀɴɢᴜᴀɢᴇ: Pʏᴛʜᴏɴ 3
 ✯ DᴀᴛᴀBᴀsᴇ: MᴏɴɢᴏDB
 ✯ Bᴏᴛ Sᴇʀᴠᴇʀ: Hᴇʀᴜᴋᴜ ᴘᴀɪᴅ
