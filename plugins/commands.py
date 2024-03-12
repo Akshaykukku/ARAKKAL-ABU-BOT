@@ -22,7 +22,7 @@ BATCH_FILES = {}
 async def start(client, message):
     if message.chat.type in [enums.ChatType.GROUP, enums.ChatType.SUPERGROUP]:
         buttons = [[           
-            InlineKeyboardButton('📢 𝚄𝙿𝙳𝙰𝚃𝙴𝚂 📢', url='https://t.me/sanufilterv1_botgrp')
+            InlineKeyboardButton('📢 𝚄𝙿𝙳𝙰𝚃𝙴𝚂 📢', url='https://t.me/spyrosearch_botgrp')
             ],[
             InlineKeyboardButton('ℹ️ 𝙷𝙴𝙻𝙿 ℹ️', url=f"https://t.me/{temp.U_NAME}?start=help")
             ]]
@@ -44,9 +44,9 @@ async def start(client, message):
              InlineKeyboardButton('DISCLAIMER', callback_data='disclaimer')
         ],  [
 
-            InlineKeyboardButton('⚡ GROUP ⚡', url='https://t.me/+cHFG071nmPsyYzBh'),
+            InlineKeyboardButton('🎥 OTT UPDATES 🎥', url='https://t.me/+rIVicqQ7_FU4ZDU1'),
 
-            InlineKeyboardButton('🤖 CHANNEL 🤖', url='https://t.me/+cDIjx6c8NcdlNmM5')
+            InlineKeyboardButton('🤖 CHANNEL 🤖', url='https://t.me/+SEu-xUKoSPpiOGY1')
 
         ], [
 
