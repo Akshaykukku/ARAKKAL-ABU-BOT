@@ -103,9 +103,9 @@ async def start(client, message):
              InlineKeyboardButton('DISCLAIMER', callback_data='disclaimer')
         ],  [
 
-            InlineKeyboardButton('⚡ GROUP ⚡', url='https://t.me/+cHFG071nmPsyYzBh'),
+            InlineKeyboardButton('⚡ CHANNEL ⚡', url='https://t.me/+ww0SQortLsc0YTg1'),
 
-            InlineKeyboardButton('🤖 CHANNEL 🤖', url='https://t.me/+cDIjx6c8NcdlNmM5')
+            InlineKeyboardButton('🤖 CHANNEL 🤖', url='https://t.me/+SEu-xUKoSPpiOGY1')
 
         ], [
 
