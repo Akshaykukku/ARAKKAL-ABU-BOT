@@ -847,9 +847,9 @@ async def cb_handler(client: Client, query: CallbackQuery):
              InlineKeyboardButton('DISCLAIMER', callback_data='disclaimer')
         ],  [
 
-            InlineKeyboardButton('⚡ GROUP ⚡', url='https://t.me/+cHFG071nmPsyYzBh'),
+            InlineKeyboardButton('⚡ GROUP ⚡', url='https://t.me/+Bvz7baHqBOs1ZjI9'),
 
-            InlineKeyboardButton('🤖 CHANNEL 🤖', url='https://t.me/+cDIjx6c8NcdlNmM5')
+            InlineKeyboardButton('🤖 CHANNEL 🤖', url='https://t.me/+mgxD7-7zTC4xMzI1')
 
         ], [
 
@@ -947,7 +947,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "disclaimer":
         buttons= [[
-            InlineKeyboardButton(' Admin ', url='https://t.me/Thisis_sanu')
+            InlineKeyboardButton(' Admin ', url='https://t.me/SM_Projects')
             ],[
             InlineKeyboardButton('🏠 𝙷𝙾𝙼𝙴 🏠', callback_data='start'),
             InlineKeyboardButton('🔐 𝙲𝙻𝙾𝚂𝙴 🔐', callback_data='close_data')
@@ -960,7 +960,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "autoapprove":
         buttons= [[
-            InlineKeyboardButton(' ADD BOT ', url='http://t.me/Sm_Arakkal_abu_bot?startchannel=true')
+            InlineKeyboardButton(' ADD BOT ', url='http://t.me/Spyrosearchbot?startchannel=true')
             ],[
             InlineKeyboardButton('🏠 𝙷𝙾𝙼𝙴 🏠', callback_data='start'),
             InlineKeyboardButton('🔐 𝙲𝙻𝙾𝚂𝙴 🔐', callback_data='close_data')
@@ -986,7 +986,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         )
     elif query.data == "source":
         buttons = [[
-            InlineKeyboardButton('ABOUT ME', url='https://t.me/sanufilterv1_botgrp')
+            InlineKeyboardButton('ABOUT ME', url='https://t.me/spyrosearchbot_botgrp')
             ],[
             InlineKeyboardButton('👩‍🦯 Back', callback_data='about')
         ]]
@@ -1131,7 +1131,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
     elif query.data == "owner_info":
             btn = [[
                     InlineKeyboardButton("«𝙱𝙰𝙲𝙺", callback_data="start"),
-                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="t.me/Thisis_sanu")
+                    InlineKeyboardButton("Cᴏɴᴛᴀᴄᴛ", url="t.me/Asuravith")
                   ]]
             reply_markup = InlineKeyboardMarkup(btn)
             await query.message.edit_text(
@@ -1606,14 +1606,14 @@ async def auto_filter(client, msg, spoll=False):
              InlineKeyboardButton(text="NEXT ➡️", callback_data=f"next_{req}_{key}_{offset}")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="💢 ᴊᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ 💢",url="https://t.me/+cHFG071nmPsyYzBh")]
+            [InlineKeyboardButton(text="💢 ᴊᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ 💢",url="https://t.me/+Bvz7baHqBOs1ZjI9")]
         )
     else:
         btn.append(
             [InlineKeyboardButton(text="📄 Page 1/1", callback_data="pages")]
         )
         btn.insert(0,
-            [InlineKeyboardButton(text="💢 ᴊᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ 💢",url="https://t.me/+cHFG071nmPsyYzBh")]
+            [InlineKeyboardButton(text="💢 ᴊᴏɪɴ ᴏᴜʀ ɢʀᴏᴜᴘ 💢",url="https://t.me/+Bvz7baHqBOs1ZjI9")]
         )
     imdb = await get_poster(search, file=(files[0]).file_name) if settings["imdb"] else None
     TEMPLATE = settings['template']
