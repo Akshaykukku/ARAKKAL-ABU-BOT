@@ -1749,7 +1749,7 @@ async def pm_AutoFilter(client, msg, pmspoll=False):
         )
     else:
         cap = f"<b><i>Hey</i></b> 👋🏻 <b><i>{message.from_user.mention}</i></b>\n\n 🔖 <b><i>Title</i></b> : <b><i>{search}</i></b>\n 📫 <b><i>Your Files is Ready Now</i></b>"
-    if imdb and imdb.get('poster'):
+    if imdb and imdb.get('Text'):
         try:
             hehe = await message.reply_photo(photo=imdb.get('poster'), caption=cap, reply_markup=InlineKeyboardMarkup(btn))
             await asyncio.sleep(IMDB_DELET_TIME)
