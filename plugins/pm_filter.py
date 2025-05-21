@@ -15,6 +15,11 @@ from database.ia_filterdb import Media, get_file_details, get_search_results, ge
 from database.filters_mdb import del_all, find_filter, get_filters
 from database.gfilters_mdb import find_gfilter, get_gfilters
 from plugins.helper.admin_check import admin_fliter
+import asyncio
+
+
+
+FILE_DELETE_TIME = 180
 
 
 
@@ -513,15 +518,19 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return            
             else:
-                await client.send_cached_media(
+                message = await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                    protect_content=True if ident == "pmfilep" else False                    
-                )                        
+                    protect_content=True if ident == "pmfilep" else False
+                )
+                await asyncio.sleep(FILE_DELETE_TIME)
+                await message.delete()
         except Exception as e:
             await query.answer(f"⚠️ Error {e}", show_alert=True)
-        
+    
+    
+            
     if query.data.startswith("file"):        
         ident, req, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
@@ -549,13 +558,16 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                await client.send_cached_media(
+                message = await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
                     caption=f_caption,
-                    protect_content=True if ident == "filep" else False 
+                    protect_content=True if ident == "filep" else False
                 )
                 await query.answer('Check PM, I have sent files in pm', show_alert=True)
+                await asyncio.sleep(FILE_DELETE_TIME)
+                await message.delete()
+
         except UserIsBlocked:
             await query.answer('Unblock the bot mahn !', show_alert=True)
         except PeerIdInvalid:
