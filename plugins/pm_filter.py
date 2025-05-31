@@ -14,9 +14,65 @@ from database.users_chats_db import db
 from database.ia_filterdb import Media, get_file_details, get_search_results, get_bad_files
 from database.filters_mdb import del_all, find_filter, get_filters
 from database.gfilters_mdb import find_gfilter, get_gfilters
-from plugins.helper.admin_check import admin_fliter
+from plugins.helper.aMake sure to save/forward it if neededdmin_check import admin_fliter
 import asyncio
-from datetime import datetime, timedelta
+from datetime impoasync def send_delete_notification(client, chat_id, file_name):
+    """Send notification that file will be deleted"""
+    try:
+        delete_time = format_time(FILE_DELETE_TIME)
+        notification_msg = await client.send_message(
+            chat_id=chat_id,
+            text=f" **⚠️Aᴜᴛᴏ Dᴇʟᴇᴛᴇ Tɪᴍᴇʀ Aɴɴᴏᴜɴᴄᴇᴍᴇɴᴛ⚠️**\n\n"
+                 f"🕒 Tʜɪs ғɪʟᴇ ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ɪɴ  **{delete_time}**\n\n"
+                 f"💡 Mᴀᴋᴇ sᴜʀᴇ ᴛᴏ sᴀᴠᴇ/ғᴏʀᴡᴀʀᴅ ɪᴛ ɪғ ɴᴇᴇᴅᴇᴅ!"
+        )
+        return notification_msg
+    except Exception as e:
+        logging.error(f"Error sending delete notification: {e}")
+        return None
+
+async def send_deletion_confirmation(client, chat_id, file_name):
+    """Send confirmation that file has been deleted"""
+    try:
+        await client.send_message(
+            chat_id=chat_id,
+            text=f"🗑️ **⚠️Fɪʟᴇ Dᴇʟᴇᴛᴇᴅ⚠️**\n\n"
+                 f"✅ `{file_name}` ʜᴀs ʙᴇᴇɴ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ{format_time(FILE_DELETE_TIME)}\n\n"
+                 f"🔍Sᴇᴀʀᴄʜ ᴀɢᴀɪɴ ɪғ ʏᴏᴜ ɴᴇᴇᴅ ᴛʜᴇ ғɪʟᴇ!"
+        )
+    except Exception as e:
+        logging.error(f"Error sending deletion confirmation: {e}")
+
+async def auto_delete_file(client, message, notification_msg, file_name, chat_id):
+    """Auto delete file after specified time"""
+    try:
+        # Wait for the specified time
+        await asyncio.sleep(FILE_DELETE_TIME)
+        
+        # Delete the file message
+        try:
+            await message.delete()
+            logging.info(f"Auto-deleted file: {file_name} for user: {chat_id}")
+        except Exception as e:
+            logging.error(f"Error deleting file message: {e}")
+        
+        # Delete the notification message
+        if notification_msg:
+            try:
+                await notification_msg.delete()
+            except Exception as e:
+                logging.error(f"Error deleting notification message: {e}")
+        
+        # Send deletion confirmation
+        await send_deletion_confirmation(client, chat_id, file_name)
+        
+        # Remove from tracking dictionary
+        message_key = f"{chat_id}_{message.id}"
+        if message_key in file_messages:
+            del file_messages[message_key]
+            
+    except Exception as e:
+        logging.error(f"Error in auto_delete_file: {e}")rt datetime, timedelta
 
 
 
@@ -46,17 +102,15 @@ def format_time(seconds):
         return f"{minutes}m"
     else:
         return f"{seconds}s"
-
 async def send_delete_notification(client, chat_id, file_name):
     """Send notification that file will be deleted"""
     try:
         delete_time = format_time(FILE_DELETE_TIME)
         notification_msg = await client.send_message(
             chat_id=chat_id,
-            text=f"⏰ **Auto Delete Timer**\n\n"
-                 f"📁 File: `{file_name}`\n"
-                 f"🕒 This file will be automatically deleted in **{delete_time}**\n\n"
-                 f"💡 Make sure to save/forward it if needed!"
+            text=f"⏰ **⚠️Aɴɴᴏᴜɴᴄᴇᴍᴇɴᴛ⚠️**\n\n"
+                 f"🕒 `{file_name}` ᴡɪʟʟ ʙᴇ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ɪɴ**{delete_time}**\n\n"
+                 f"💡 !"
         )
         return notification_msg
     except Exception as e:
@@ -68,10 +122,9 @@ async def send_deletion_confirmation(client, chat_id, file_name):
     try:
         await client.send_message(
             chat_id=chat_id,
-            text=f"🗑️ **File Deleted**\n\n"
-                 f"📁 File: `{file_name}`\n"
-                 f"✅ File has been automatically deleted after {format_time(FILE_DELETE_TIME)}\n\n"
-                 f"🔍 Search again if you need the file!"
+            text=f"🗑️ **⚠️Fɪʟᴇ Dᴇʟᴇᴛᴇᴅ⚠️**\n\n"
+                 f"✅ `{file_name}` ʜᴀs ʙᴇᴇɴ ᴀᴜᴛᴏᴍᴀᴛɪᴄᴀʟʟʏ ᴅᴇʟᴇᴛᴇᴅ ᴀғᴛᴇʀ{format_time(FILE_DELETE_TIME)}\n\n"
+                 f"🔍 Sᴇᴀʀᴄʜ ᴀɢᴀɪɴ ɪғ ʏᴏᴜ ɴᴇᴇᴅ ᴛʜᴇ ғɪʟᴇ!"
         )
     except Exception as e:
         logging.error(f"Error sending deletion confirmation: {e}")
@@ -106,7 +159,6 @@ async def auto_delete_file(client, message, notification_msg, file_name, chat_id
             
     except Exception as e:
         logging.error(f"Error in auto_delete_file: {e}")
-
 
 @Client.on_message(filters.command('autofilter') & filters.group & admin_fliter)
 async def fil_mod(client, message): 
@@ -361,8 +413,6 @@ async def advantage_spoll_choker(bot, query):
             await asyncio.sleep(10)
             await k.delete()
 
-
-
 @Client.on_callback_query(filters.regex(r"^pmspolling"))
 async def pm_spoll_tester(bot, query):
     _, user, movie_ = query.data.split('#')
@@ -571,6 +621,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             alert = alert.replace("\\n", "\n").replace("\\t", "\t")
             await query.answer(alert, show_alert=True)
 
+    # FIXED: PM File Handler with Auto-Delete
     if query.data.startswith("pmfile"):
         ident, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
@@ -580,14 +631,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         title = files.file_name
         size = get_size(files.file_size)
         f_caption = files.caption
+        
         if CUSTOM_FILE_CAPTION:
             try:
-                f_caption = CUSTOM_FILE_CAPTION.format(mention=query.from_user.mention, file_name='' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)                                                                                                      
+                f_caption = CUSTOM_FILE_CAPTION.format(
+                    mention=query.from_user.mention, 
+                    file_name='' if title is None else title, 
+                    file_size='' if size is None else size, 
+                    file_caption='' if f_caption is None else f_caption
+                )                                                                                                      
             except Exception as e:
                 logging.exception(e)
-            f_caption = f_caption
+                
         if f_caption is None:
             f_caption = f"{files.file_name}"
+            
         try:
             if AUTH_CHANNEL and not await is_subscribed(client, query):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
@@ -619,6 +677,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
         except Exception as e:
             await query.answer(f"⚠️ Error {e}", show_alert=True)
     
+    # FIXED: Group File Handler with Auto-Delete
     if query.data.startswith("file"):        
         ident, req, file_id = query.data.split("#")
         files_ = await get_file_details(file_id)
@@ -629,12 +688,18 @@ async def cb_handler(client: Client, query: CallbackQuery):
         size = get_size(files.file_size)
         f_caption = files.caption
         settings = await get_settings(query.message.chat.id)
+        
         if CUSTOM_FILE_CAPTION:
             try:
-                f_caption = CUSTOM_FILE_CAPTION.format(mention=query.from_user.mention, file_name='' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)                               
+                f_caption = CUSTOM_FILE_CAPTION.format(
+                    mention=query.from_user.mention, 
+                    file_name='' if title is None else title, 
+                    file_size='' if size is None else size, 
+                    file_caption='' if f_caption is None else f_caption
+                )                               
             except Exception as e:
                 logging.exception(e)
-            f_caption = f_caption
+                
         if f_caption is None:
             f_caption = f"{files.file_name}"
 
@@ -646,7 +711,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                 await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
                 return
             else:
-                # Send the file
+                # Send the file to user's PM
                 message = await client.send_cached_media(
                     chat_id=query.from_user.id,
                     file_id=file_id,
@@ -654,7 +719,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     protect_content=True if ident == "filep" else False
                 )
                 
-                # Send delete notification
+                # Send delete notification to user's PM
                 notification_msg = await send_delete_notification(client, query.from_user.id, title)
                 
                 # Store message info for tracking
@@ -666,13 +731,13 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     'chat_id': query.from_user.id
                 }
                 
-                # Start auto-delete task
+                # Start auto-delete task for PM file
                 asyncio.create_task(auto_delete_file(client, message, notification_msg, title, query.from_user.id))
                 
-                await query.answer('Check PM, I have sent files in pm', show_alert=True)
+                await query.answer('✅ File sent to PM with auto-delete enabled!', show_alert=True)
 
         except UserIsBlocked:
-            await query.answer('Unblock the bot mahn !', show_alert=True)
+            await query.answer('Unblock the bot first!', show_alert=True)
         except PeerIdInvalid:
             await query.answer(url=f"https://t.me/{temp.U_NAME}?start={ident}_{file_id}")
         except Exception as e:
@@ -690,14 +755,21 @@ async def cb_handler(client: Client, query: CallbackQuery):
         title = files.file_name
         size = get_size(files.file_size)
         f_caption = files.caption
+        
         if CUSTOM_FILE_CAPTION:
             try:
-               f_caption = CUSTOM_FILE_CAPTION.format(mention=query.from_user.mention, file_name='' if title is None else title, file_size='' if size is None else size, file_caption='' if f_caption is None else f_caption)  
+               f_caption = CUSTOM_FILE_CAPTION.format(
+                   mention=query.from_user.mention, 
+                   file_name='' if title is None else title, 
+                   file_size='' if size is None else size, 
+                   file_caption='' if f_caption is None else f_caption
+               )  
             except Exception as e:
                 logging.exception(e)
-                f_caption = f_caption
+                
         if f_caption is None:
             f_caption = f"{title}"
+            
         await query.answer()
         
         # Send the file
@@ -770,7 +842,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
                     [InlineKeyboardButton(text="270", callback_data="270")],
                     ],
                     [
-                        InlineKeyboardButton('𝙱𝙰𝙲𝙺', callback_data='photo')
+                        InlineKeyboardButton('𝙱𝙰𝙲??', callback_data='photo')
                 ]
             ),
         )
@@ -1007,7 +1079,7 @@ async def cb_handler(client: Client, query: CallbackQuery):
             ],[
             InlineKeyboardButton(text="𝖲𝗍𝗂𝖼𝗄𝖾𝗋", callback_data="stick"),
             InlineKeyboardButton(text="𝖱𝗈𝗍𝖺𝗍𝖾", callback_data="rotate"),
-            InlineKeyboardButton(text="𝖢𝗈𝗇𝗍𝗋𝖺𝗌𝗍", callback_data="contrast"),
+            InlineKeyboardButton(text="𝖢??𝗇𝗍𝗋𝖺𝗌𝗍", callback_data="contrast"),
             ],[
             InlineKeyboardButton(text="𝖲𝖾𝗉𝗂𝖺", callback_data="sepia"),
             InlineKeyboardButton(text="𝖯𝖾𝗇𝖼𝗂𝗅", callback_data="pencil"),
